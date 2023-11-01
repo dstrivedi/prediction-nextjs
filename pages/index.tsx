@@ -45,6 +45,8 @@ export default function Home() {
     }
   }
 
+  // When a user enters a prompt and submits the form, it posts the data to the server-side endpoint that you created in Step 4 to create the prediction with Replicate.
+
   return (
     <div className={styles.container}>
       <Head>
