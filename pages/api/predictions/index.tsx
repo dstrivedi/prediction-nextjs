@@ -8,7 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      version: "v1",
+      version: "2a865c9a94c9992b6689365b75db2d678d5022505ed3f63a5f53929a31a46947",
       input: { prompt: req.body.prompt }
     })
   });
@@ -17,9 +17,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     let error = await response.json();
     res.statusCode = 500;
     res.end(JSON.stringify({ detail: error.detail }));
+    return;
   }
 
-  const predictions = await response.json();
+  const prediction = await response.json();
   res.statusCode = 201;
-  res.end(JSON.stringify(predictions));
+  res.end(JSON.stringify(prediction));
 }
